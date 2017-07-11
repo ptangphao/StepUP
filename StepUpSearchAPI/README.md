@@ -1,14 +1,13 @@
 # StepUpSearchAPI
 
 ## Description
-StepUpSearchAPI is a Ruby on Rails API built for allowing . The application was deployed on Heroku and utilized the StepUpScraperAPI to build its database.(http://www.github.com/stepup/steupscraperapi)
+StepUpSearchAPI is a Ruby on Rails API that holds data regarding mental health professionals. Users are able to query the API to obtain a list of relevant healthcare professionals organized using a ranking algorithm based on user provided parameters. The application was deployed on Heroku and utilized the StepUpScraperAPI to build its database.(http://www.github.com/stepup/steupscraperapi)
 
 ## Technologies
 * Ruby on Rails
 * Heroku
 
 ## API End Points
-
 
 ### GET '/search'  
 
