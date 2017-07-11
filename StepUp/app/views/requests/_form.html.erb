@@ -1,0 +1,57 @@
+<%= form_for @request do |f| %>
+  <h3>
+    <%= f.label "Post Title"%><br>
+    <input type="text" placeholder="Enter a descriptive title">
+  </h3>
+
+  <h3>
+    <%= f.label "Post Description" %><br>
+    <input type="text" placeholder="Add a description">
+  </h3>
+
+  <h3> 
+    <%= f.label "Date Range" %><br>
+    <%= f.date_field :time %>
+  </h3>
+
+  <h3> 
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </h3>
+
+  <h3>
+  We want to find the best providers for <%=@patient.first_name.capitalize  %>'s specific needs. Please select where applicable:
+  </h3>
+
+  <ul style="list-style:none;">
+  <strong><%= f.label "Select search criteria"  %></strong>
+  <li>
+  <%= f.label "Expertise in Target Issue" %>
+  <%= f.select :issue_param, @i_list %>
+  <%= f.select :ti_value, @one_to_ten %>
+  </li>
+  <li>
+  <%= f.label "Language Spoken" %>
+  <%= f.select :client_language_param, @cl_list%>
+  <%= f.select :cl_value, @one_to_ten%>
+  </li>
+  <li>
+  <%= f.label "Experience with client's ethnic background" %>
+  <%= f.select :client_category_param, @cc_list%>
+  <%= f.select :cc_value, @one_to_ten%>   
+  </li>
+  <li>
+  <%= f.label "Experience with Specific Topics" %>
+  <%= f.select :client_ethnicity_param, @ce_list%>
+  <%= f.select :ce_value, @one_to_ten%>
+  </li>
+  <%= f.label "Is a Virtual Session an option?" %>
+  <li><input type="radio">Yes <input type="radio">No </li>
+
+
+
+  <%= f.label "Additional Notes" %>
+   <input type="text" placeholder="Add additional notes">
+
+  <li><button>Cancel</button><%= f.submit text: "submit request"%></li></ul>
+<% end %>

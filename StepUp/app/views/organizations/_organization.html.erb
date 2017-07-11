@@ -1,0 +1,7 @@
+<% if organization.image_url? %>
+	<%= image_tag(organization.image_url) %>
+<% end %>
+
+<p><%= link_to organization.name, organization %></p>
+
+<hr>

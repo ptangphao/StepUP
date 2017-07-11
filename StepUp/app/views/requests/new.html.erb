@@ -1,0 +1,26 @@
+<div class="text-gray card" style="height:80%; width: 25% ; display: inline-block; vertical-align: top;">
+<h2 class="text-blue"><%= @patient.first_name.capitalize %> <%= @patient.last_name.chars.first.upcase  %>.</h2>
+<p class="text-gray"><%= @patient.location  %></p>
+<hr>
+
+<%= @patient.age %> years old  •
+<%= @patient.sex == "f" ? "Female" : "Male" %>
+<%= @patient.organization.name%>
+<h3>Issues</h3>
+<p class="text-blue"><%@patient.issues.each do |issue|%>
+	<%= issue.name  %>
+	<% if issue != @patient.issues.last %>
+	,
+	<% end %>
+<% end %>
+</p>
+<h3> Languages </h3>
+<%= @patient.language.capitalize %>
+<h3> Notes </h3>
+<%= @patient.notes  %>
+</div>
+
+<div style="display: inline-block"">
+<h1>New Request</h1>
+<%= render "form" %>
+</div>

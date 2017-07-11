@@ -1,0 +1,24 @@
+<div class="card">
+	<div class="block left">
+		<h2><%= link_to patient.full_name, organization_patient_path(patient), 
+			:class => "no-dec text-blue" %></h2>
+		<p class="text-gray"><%= patient.location %></p>
+	</div>
+	<div class="block right">
+		<%= button_to "#{patient.requests.length} requests", "#", 
+			:class => "btn-sml", method: "get" %>
+	</div>
+
+	<div class="block left bottom">
+		<p class="text-gray">Issues:</p>
+		<% patient.issues.each do |issue| %>
+			<p class="text-blue">
+				<% if patient.issues.last == issue %>
+					<%= issue.name %>
+				<% else %>
+					<%= issue.name %>, 
+				<% end %>
+			</p>
+		<% end %>
+	</div>
+</div>

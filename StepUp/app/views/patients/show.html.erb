@@ -1,0 +1,13 @@
+<h1><%= @patient.full_name %></h1>
+
+<p>Age: <%= @patient.age %></p>
+<p>Zip Code: <%= @patient.zip_code %></p>
+<p>Gender: <%= @patient.sex %></p>
+<p>Language: <%= @patient.language %></p>
+<p>Organization: <%= @patient.organization.name %></p>
+
+<ul>
+	<% @patient.issues.each do |issue| %>
+		<li>issue.name</li>
+	<% end %>
+</ul>

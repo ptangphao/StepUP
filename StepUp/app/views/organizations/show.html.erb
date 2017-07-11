@@ -1,0 +1,30 @@
+<div class="block left">
+	<h1 class="padding-left"><%= "#{@organization.name}'s Page" %></h1> 
+	<p class="padding-left text-gray no-top-margin"><%= @organization.location %></p>	
+</div>
+
+<div class="block right padding-top padding-right">
+	<%= button_to "New Patient", new_organization_patient_path(@organization), :class => "btn-lrg", method: "get" %>
+</div>
+
+<% if @organization.image_url? %>
+	<p class="text-center"><%= image_tag(@organization.image_url, :class => "text-center") %></p>
+	
+<% end %>
+
+
+<div class="padding-left">
+	<p class="text-gray">Patients(<%= @organization.patients.length %>)</p class="text-gray">
+	<%= render @organization.patients %>
+</div>
+
+<h2>Open Requests</h2>
+<div class="padding-left">
+	<%= render @organization.requests %>
+</div>
+
+<%= link_to "New Request", new_request_path %>
+
+<p>Phone: <%= @organization.phone %></p>
+<p>Email: <%= @organization.email %></p>
+<p>Notes: <%= @organization.notes %></p>

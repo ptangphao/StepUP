@@ -1,0 +1,51 @@
+<div class="page-blue">
+	<h1 class="padding-left text-white">
+		We found <%= @response[:data].length %> therapists that match your criteria!
+	</h1>
+
+	<%= button_to "CONTACT US", "/message", :class => "btn-lrg-white text-blue", method: "get" %>
+
+	<div class="padding-left">
+		<% @response[:data].each do |t| %>
+			<div class="card">
+				<div class="block left full-width">		
+					<h2 class="text-blue"><%= t[:name] %></h2>
+					<p class="text-gray"><%= t[:title] %></p>
+					<hr>
+				</div>
+
+				<div class="block bottom left">
+					<p>Specialties</p>
+						<% if t[:target_issues].length > 0 %>
+							<% t[:target_issues].each do |issue| %>
+								<p class="text-blue no-top-margin">
+									<%= issue[:name] %>
+								</p>
+							<% end %>
+						<% else %>
+								<p class="text-blue no-top-margin">
+									<%= t[:issues].first[:name] %>
+								</p>
+						<% end %>
+				</div>
+
+				<div class="block bottom right">
+					<p class="text-gray">Languages</p>
+					<p class="text-darkgray">
+						<% if t[:client_languages].length > 0 %>
+							<% t[:client_languages].each do |lang| %>
+								<% if t[:client_languages].last == lang %>
+									<%= lang[:name] %>
+								<% else %>
+									<%= lang[:name] %>, 
+								<% end %>
+							<% end %>
+						<% else %>
+							<%= "English" %>
+						<% end %>
+					</p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
