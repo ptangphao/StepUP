@@ -21,6 +21,7 @@ Valid parameters are as follows:
 * client_ethnicity
 * ce_value
 
+Sample Request:
 
 ```
 GET '/search?issue=Relationship Issues&ti_value=5&client_language=Spanish&cl_value=10&client_category=Bisexual Clients&cc_value=50&client_ethnicity=Hispanic and Latino&ce_value=10'
